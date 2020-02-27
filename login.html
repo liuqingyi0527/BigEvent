@@ -6,16 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <!-- 导入 layui 的样式 -->
-  <link rel="stylesheet" href="/assets/lib/layui/css/layui.css" />
+  <link rel="stylesheet" href="assets/lib/layui/css/layui.css" />
   <!-- 导入自己的样式 -->
   <!-- 在开发中，尽量不要使用  ./  和 ../ 去写路径 -->
-  <link rel="stylesheet" href="/assets/css/login.css" />
+  <link rel="stylesheet" href="assets/css/login.css" />
 </head>
 
 <body>
   <!-- 头部的 logo 区域 -->
   <div class="layui-main header">
-    <img src="/assets/images/logo.png" alt="" />
+    <img src="assets/images/logo.png" alt="" />
   </div>
 
   <!-- 登录和注册的盒子 -->
@@ -25,7 +25,7 @@
     <!-- 登录的盒子 -->
     <div class="login-box">
       <!-- 登录的表单 -->
-      <form class="layui-form" action="">
+      <form class="layui-form" id="form-login">
         <!-- 表单行 -->
         <div class="layui-form-item">
           <!-- 图标 -->
@@ -53,7 +53,7 @@
     <!-- 注册的盒子 -->
     <div class="reg-box">
       <!-- 注册的表单 -->
-      <form class="layui-form" action="">
+      <form class="layui-form" id="form-reg">
         <!-- 第1行 -->
         <div class="layui-form-item">
           <i class="layui-icon layui-icon-username"></i>
@@ -88,11 +88,11 @@
   </div>
 
   <!-- 导入 layui 的脚本 -->
-  <script src="/assets/lib/layui/layui.all.js"></script>
+  <script src="assets/lib/layui/layui.all.js"></script>
   <!-- 一定要在页面的最底部，导入所有的 script 脚本 -->
-  <script src="/assets/lib/jquery.js"></script>
+  <script src="assets/lib/jquery.js"></script>
   <!-- 导入自己的 js -->
-  <script src="/assets/js/login.js"></script>
+  <script src="assets/js/login.js"></script>
 </body>
 
 </html>
