@@ -1,7 +1,10 @@
 $(function () {
+
   // 只要导入了 layui.all.js 脚本，就可以使用 layui.form
-  var form = layui.form
-  var layer = layui.layer
+  //表单验证
+  var form = layui.form;
+  //弹出层
+  var layer = layui.layer;
 
   // 点击了注册的链接
   $('#link-reg').on('click', function () {

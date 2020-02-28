@@ -13,7 +13,10 @@ body {
 }
 
 .header {
+  /* background-color: pink; */
   padding-top: 20px;
+  /* 用magin-top会有层级的问题，换成padding */
+  /* margin-top: 20px; */
 }
 
 .loginAndRegBox {
@@ -28,7 +31,7 @@ body {
 
 .header-box {
   height: 60px;
-  background: url('/assets/images/login_title.png') no-repeat center;
+  background: url('../images/login_title.png') no-repeat center;
 }
 
 .reg-box {
