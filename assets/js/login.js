@@ -68,7 +68,7 @@ $(function () {
     // 2. 手动发起 ajax 请求
     $.ajax({
       type: 'POST',
-      url: 'http://www.liulongbin.top:3007/api/login',
+      url: '/api/login',
       data: $(this).serialize(),
       success: function (res) {
         // 先使用 if 判断失败的请求，然后 return 出去
@@ -81,7 +81,7 @@ $(function () {
         // 将服务器颁发的 token 字符串，持久化存储到 localStorage
         localStorage.setItem('token', res.token)
         // 跳转到后台首页
-        location.href = '/index.html'
+        location.href = '/Day01/code/index.html'
       }
     })
   })
