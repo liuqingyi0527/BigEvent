@@ -9,7 +9,7 @@ $.ajaxPrefilter(function (option) {
             Authorization: localStorage.getItem('token')
         }
     }
-    // 统一为有权限的接口，设置 complete 回调函数
+    // 权限的接口，设置 complete 回调函数
     option.complete = function (res) {
         // 使用 res.responseJSON 获取到服务器的响应内容
         if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
