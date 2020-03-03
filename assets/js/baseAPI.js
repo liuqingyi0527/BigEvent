@@ -1,3 +1,11 @@
+
+// const routes = [
+//     {
+//         path: '/',
+//         name: 'login',
+//         component: login
+//     }
+// ]
 //注意：今后每个页面。繁花似发送ajxa请求，都必须先导入这个baseAP.js之后，发起请求
 //否者，无法统一为ajax请求拼接url根路径
 $.ajaxPrefilter(function (option) {

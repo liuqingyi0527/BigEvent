@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/lib/layui/css/layui.css" />
+    <link rel="stylesheet" href="../assets/css/article/art_list.css" />
+</head>
+
+<body>
+    <!-- 卡片 -->
+    <div class="layui-card">
+        <div class="layui-card-header">文章列表</div>
+        <div class="layui-card-body">
+            <!-- 筛选区域 -->
+            <form class="layui-form" id="form-search">
+                <!-- 三个行内的表单元素：1 -->
+                <div class="layui-inline">
+                    <select name="cate_id" lay-verify=""></select>
+                </div>
+                <!-- 三个行内的表单元素：2 -->
+                <div class="layui-inline">
+                    <select name="state" lay-verify="">
+                        <option value="">所有状态</option>
+                        <option value="已发布">已发布</option>
+                        <option value="草稿">草稿</option>
+                    </select>
+                </div>
+                <!-- 三个行内的表单元素：3 -->
+                <div class="layui-inline">
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">筛选</button>
+                </div>
+            </form>
+
+            <!-- 列表区域 -->
+            <table class="layui-table">
+                <colgroup>
+                    <col>
+                    <col width="150px">
+                    <col width="180px">
+                    <col width="150px">
+                    <col width="150px">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>文章标题</th>
+                        <th>分类</th>
+                        <th>发表时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <!-- 分页区域 -->
+            <div id="pager"></div>
+        </div>
+    </div>
+
+    <!-- 列表的模板 -->
+    <script type="text/html" id="tpl-table">
+    {{each data}}
+    <tr>
+      <td>{{$value.title}}</td>
+      <td>{{$value.cate_name}}</td>
+      <td>{{$value.pub_date|dateFormat}}</td>
+      <td>{{$value.state}}</td>
+      <td>
+        <button type="button" class="layui-btn layui-btn-xs  btn_edit" data_Id={{$value.Id}}>编辑</button>
+        <button type="button" class="layui-btn layui-btn-xs layui-btn-danger  btn_delete" data_Id={{$value.Id}}>删除</button>
+      </td>
+    </tr>
+    {{/each}}
+    </script>
+    <!-- 分类下拉菜单选项的模板 -->
+    <script type="text/html" id="tpl-cate">
+    <option value="">所有分类</option>
+    {{each data}}
+    <option value="{{$value.Id}}">{{$value.name}}</option>
+    {{/each}}
+  </script>
+    <!-- 编辑弹出框 -->
+    <!-- 编辑列表的模板结构 -->
+    <script type="text/html" id="tpl-edit">
+    <!-- 注意：form 的 id 属性一定要做一下修改 -->
+    <form class="layui-form" id="form-edit" lay-filter="form-edit">
+        <!-- 使用隐藏域保存 Id 的值 -->
+        <input type="hidden" name="Id" />
+        <!-- 第一行 -->
+        <div class="layui-form-item">
+            <label class="layui-form-label">文章标题</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" required lay-verify="required" placeholder="请输入分类名称" autocomplete="off"
+                    class="layui-input">
+            </div>
+        </div>
+        <!-- 第二行 -->
+        <div class="layui-form-item">
+            <label class="layui-form-label">文章内容</label>
+            <div class="layui-input-block">
+                <input type="text" name="content" required lay-verify="required" placeholder="请输入分类别名"
+                    autocomplete="off" class="layui-input  artType">
+            </div>
+        </div>
+        <!-- 第三行 -->
+        <div class="layui-form-item">
+            <label class="layui-form-label">发表时间</label>
+            <div class="layui-input-block">
+                <input type="text" name="pub_date" required lay-verify="required" placeholder="请输入分类别名"
+                    autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <!-- 第四行 -->
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
+            </div>
+        </div>
+    </form>
+    </script>
+
+    <!-- 导入第三方的 js -->
+    <script src="../assets/lib/layui/layui.all.js"></script>
+    <script src="../assets/lib/jquery.js"></script>
+    <script src="../assets/lib/template-web.js"></script>
+    <script src="../assets/js/baseAPI.js"></script>
+    <!-- 导入自己的 js -->
+    <script src="../assets/js/article/art_list.js"></script>
+</body>
+
+</html>
